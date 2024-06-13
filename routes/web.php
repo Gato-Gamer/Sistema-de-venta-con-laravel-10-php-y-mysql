@@ -2,9 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CategoriaController;
-use App\Http\Controllers\ProctuctoController;
-use App\Http\Controllers\ProductoController;
-use App\Models\Producto;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -21,5 +19,5 @@ Route::get('/', function () {
     return view('welcome');
 });
 Route::resource('almacen/categoria', CategoriaController::class);
-Route::resource('almacen/producto', ProductoController::class);
+
 

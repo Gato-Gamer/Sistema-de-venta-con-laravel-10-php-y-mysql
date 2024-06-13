@@ -11,7 +11,7 @@
                     </button>
                 </div>
                 <div class="modal-body">
-                    <p>Deseas eliminar la categoría {{ $cat->categoria }}</p>
+                    <p>Deseas eliminar la categoría {{ $cat->nombre }}</p>
                 </div>
                 <div class="modal-footer justify-content-between">
                     <button type="button" class="btn btn-outline-light" data-dismiss="modal">Cerrar</button>

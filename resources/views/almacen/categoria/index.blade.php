@@ -5,7 +5,7 @@
     <div class="container-fluid">
         <div class="row mb-2">
             <div class="col-sm-6">
-                <h1 class="m-0">LISTADO DE CATEGORIAS</h1>
+                <h1 class="m-0">LISTADO DE MUEBLES</h1>
             </div><!-- /.col -->
             <div class="col-sm-6">
                 <ol class="breadcrumb float-sm-right">
@@ -57,7 +57,9 @@
                                     <th>Opciones</th>
                                     <th>Id</th>
                                     <th>Nombre</th>
-                                    <th>Descripción</th>
+                                    <th>Material</th>
+                                    <th>Precio</th>
+                                    <th>Imagen</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -69,9 +71,10 @@
                                         <button type="button" class="btn btn-outline-danger btn-sm" data-toggle="modal" data-target="#modal-delete-{{ $cat->id }}"><i class="fas fa-trash-alt"></i></button>
                                     </td>
                                     <td>{{ $cat->id}}</td>
-                                    <td>{{ $cat->categoria}}</td>
-                                    <td>{{ $cat->descripcion}}</td>
-
+                                    <td>{{ $cat->nombre}}</td>
+                                    <td>{{ $cat->material}}</td>
+                                    <td>{{ $cat->precio}}</td>
+                                    <td>{{ $cat->imagen}}</td>
                                 </tr>
                                 @include('almacen.categoria.modal')
                                 @endforeach

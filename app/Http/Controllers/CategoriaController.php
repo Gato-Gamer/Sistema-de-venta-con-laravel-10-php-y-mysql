@@ -23,8 +23,8 @@ class CategoriaController extends Controller
         if ($request)
         {
             $query=trim($request->get('texto'));
-            $categorias=DB::table('categoria')->where('categoria','LIKE','%'.$query.'%')
-            ->where('estatus', '=', '1')
+            $categorias=DB::table('mueble')->where('nombre','LIKE','%'.$query.'%')
+            //->where('estatus', '=', '1')
             ->orderBy('id', 'desc')
             ->paginate(7);
             return view('almacen.categoria.index',["categoria"=>$categorias,"texto"=>$query]);
@@ -48,9 +48,10 @@ class CategoriaController extends Controller
     {
         //
         $categoria=new Categoria;
-        $categoria->categoria=$request->get('categoria');
-        $categoria->descripcion=$request->get('descripcion');
-        $categoria->estatus='1';
+        $categoria->nombre=$request->get('nombre');
+        $categoria->material=$request->get('material');
+        $categoria->precio=$request->get('precio');
+        $categoria->imagen=$request->get('imagen');
         $categoria->save();
         return Redirect::to('almacen/categoria');
 
@@ -82,9 +83,12 @@ class CategoriaController extends Controller
     {
         //
         $categoria=Categoria::findOrFail($id);
-        $categoria->categoria=$request->get('categoria');
-        $categoria->descripcion=$request->get('descripcion');
+        $categoria->nombre=$request->get('nombre');
+        $categoria->material=$request->get('material');
+        $categoria->precio=$request->get('precio');
+        $categoria->imagen=$request->get('imagen');
         $categoria->update();
+        
         return Redirect::to('almacen/categoria');
     }
 
@@ -95,7 +99,7 @@ class CategoriaController extends Controller
     {
         //
         $categoria=Categoria::findOrFail($id);
-        $categoria->estatus='0';
+        $categoria->delete();
         $categoria->update();
         /* return Redirect::to('almacen/categoria'); */
         return redirect()->route('categoria.index')

@@ -23,8 +23,10 @@ class CategoriaFormRequest extends FormRequest
     {
         return [
             //
-            'categoria'=>'required|max:50',
-            'descripcion'=>'max:256'
+            'nombre'=>'required|max:50',
+            'material'=>'required|max:100',
+            'precio'=>'required|numeric',
+            'imagen'=>'required|max:100',
         ];
     }
 }

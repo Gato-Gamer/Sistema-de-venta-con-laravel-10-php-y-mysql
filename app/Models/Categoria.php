@@ -9,16 +9,17 @@ class Categoria extends Model
 {
     use HasFactory;
     
-    protected $table = 'categoria';
+    protected $table = 'mueble';
 
     protected $primaryKey = 'id';
 
     public $timestamps=false;
 
     protected $fillable=[
-        'categoria',
-        'descripcion',
-        'estatus'
+        'nombre',
+        'material',
+        'precio',
+        'imagen',
     ];
 
     protected $guarded = [
